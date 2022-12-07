@@ -1,0 +1,39 @@
+package StackTrace.VirtualWallet.Usuario;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+// import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping(path={"api/usuario", "api/usuario/{idUsuario}"})
+public class UsuarioController {
+
+    private final UsuarioService usuarioService;
+
+    @Autowired
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    @GetMapping
+    public List<Usuario> getUsuarios(@PathVariable(required=false,name="idUsuario") String idUsuario,@RequestParam(required=false) Map<String,String> qparams){
+
+        return  usuarioService.getUsuarios(idUsuario,qparams);
+    }
+
+    @PostMapping
+    public void postUsuario(@RequestBody Usuario usuario){
+        // System.out.println(usuario);
+        usuarioService.postUsuario(usuario);
+    }
+
+}
