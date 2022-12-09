@@ -1,3 +1,13 @@
+### INSTRUCCIONES 
+
+-crear base de datos postgreSQL llamada "virtualWallet"
+-en carpeta VirtualWallet\src\main\resources\application.properties reemplazar:
+
+spring.datasource.username=nombre de usuario de postgres
+spring.datasource.password=contraseña de usuario de postgres
+
+-correr src\main\java\StackTrace\VirtualWallet\VirtualWalletApplication.java
+
 1. [Rutas **usuario**](#rutas-usuario)
    - [GET usuarios](#get-usuarios)
    - [GET usuario por dni](#get-usuario-dni)
