@@ -59,6 +59,7 @@ public class TransaccionService {
                             divisas.get(i).setCantidad(divisas.get(i).getCantidad()-cantidad);
                             divisaRepository.save(divisas.get(i));
                             billeteraEmisora.get().setSaldo(billeteraEmisora.get().getSaldo()-divisas.get(i).getCantidad()*divisas.get(i).getValor_pesos());
+                            billeteraRepository.save(billeteraEmisora.get());
                             Transaccion envio = new Transaccion("transfirio",cantidad,moneda_enviada);
                             envio.setBilleteraEmisora(emisor);
                             envio.setBilleteraReceptora(receptor);

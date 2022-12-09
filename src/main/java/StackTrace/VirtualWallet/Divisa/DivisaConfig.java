@@ -13,18 +13,22 @@ public class DivisaConfig {
     CommandLineRunner commandLineRunnerDivisa(DivisaRepository repository){
         return args->{
             Divisa btc = new Divisa(
-                "btc",
-                20.00F
-
+                "BTC",
+                100.00F
             );
             
             Divisa eth = new Divisa(
-                "eth",
-                5.0F
+                "ETH",
+                30.0F
+            );
+
+            Divisa dolares = new Divisa(
+                "USD",
+                160.0F
             );
 
             repository.saveAll(
-                List.of(btc,eth)
+                List.of(btc,eth,dolares)
             );
         };
     }

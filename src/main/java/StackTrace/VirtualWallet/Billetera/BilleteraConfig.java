@@ -15,12 +15,25 @@ public class BilleteraConfig {
         return args->{
             Billetera pato_billetera_fst = new Billetera(
                 UUID.fromString("52e510a5-c1bf-4181-ab34-021970ae3473"),
-                20.55F,
-                "42544439"
+                0F,
+                "42644439"
+            );
+
+
+            Billetera pato_billetera_scd = new Billetera(
+                UUID.fromString("52e510a5-c1bf-4181-ab34-021970ae3472"),
+                0F,
+                "42644439"
+            );
+
+            Billetera melisa_billetera = new Billetera(
+                UUID.fromString("52e510a5-c1bf-4181-ab34-021970ae3471"),
+                0F,
+                "28843615"
             );
 
             repository.saveAll(
-                List.of(pato_billetera_fst)
+                List.of(pato_billetera_fst,pato_billetera_scd,melisa_billetera)
             );
         };
     }

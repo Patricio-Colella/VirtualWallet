@@ -35,6 +35,17 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    public Usuario(String dni, String genero, String nombre, String apellido, String email, String telefono, String contraseña,List<UUID> billeteras) {
+        this.dni = dni;
+        this.genero = genero;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.telefono = telefono;
+        this.contraseña = contraseña;
+        this.billeteras = billeteras;
+    }
+
     public String getDni() {
         return dni;
     }
