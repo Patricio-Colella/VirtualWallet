@@ -1,21 +1,17 @@
 package StackTrace.VirtualWallet.Usuario;
 
+import java.util.List;
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
 @Table
 public class Usuario {
-    // @SequenceGenerator(
-    //     name = "student_sequence",
-    //     sequenceName = "student_sequence",
-    //     allocationSize = 1
-    // )
-    // @GeneratedValue(
-    //     strategy = GenerationType.SEQUENCE,
-    //     generator = "student_sequence"
-    // )
+
     @Id 
     private String dni;
     private String genero;
@@ -24,6 +20,7 @@ public class Usuario {
     private String email;
     private String telefono;
     private String contraseña;
+    private List<UUID> billeteras = List.of();
 
     public Usuario() {
     }
@@ -62,10 +59,10 @@ public class Usuario {
         return telefono;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public List<UUID> getBilleteras(){
+        return billeteras;
     }
-
+    
     public void setDni(String dni) {
         this.dni = dni;
     }
@@ -94,16 +91,17 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    public void setBilleteras(UUID billetera) {
+        this.billeteras.add(billetera);
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" +
-                "Pkey_dni=" + dni +","+'\n'+
+        return "Pkey_dni=" + dni +","+'\n'+
                 "   genero=" + genero +","+ '\n' +
                 "   nombre=" + nombre +","+ '\n' +
                 "   apellido=" + apellido +","+ '\n' +
                 "   email=" + email +","+ '\n' +
-                "   telefono=" + telefono +","+'\n'+
-                "   contraseña=" + contraseña +","+'\n'+
-                '}';
+                "   telefono=" + telefono +","+'\n';
     }
 }

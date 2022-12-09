@@ -12,7 +12,6 @@ public class UsuarioConfig {
     @Bean
     CommandLineRunner commandLineRunnerUsuario(UsuarioRepository repository){
         return args->{
-            // new Usuario();
             Usuario pato = new Usuario(
                 "42644439",
                 "hombre",

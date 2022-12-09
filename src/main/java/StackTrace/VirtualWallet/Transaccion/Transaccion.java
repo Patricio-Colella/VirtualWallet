@@ -2,6 +2,7 @@ package StackTrace.VirtualWallet.Transaccion;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,16 +30,18 @@ public class Transaccion {
     private LocalDate fecha_ingreso = LocalDate.now();
     private LocalTime hora_ingreso = LocalTime.now();
     private String operacion;
-    private String moneda_origen;
-    private String moneda_destino;
+    private Float cantidad;
+    private String divisa;
+    private UUID billeteraEmisora;
+    private UUID billeteraReceptora;
 
     public Transaccion() {
     }
     
-    public Transaccion(String operacion, String moneda_origen, String moneda_destino) {
+    public Transaccion(String operacion, Float cantidad, String divisa) {
         this.operacion = operacion;
-        this.moneda_origen = moneda_origen;
-        this.moneda_destino = moneda_destino;
+        this.cantidad = cantidad;
+        this.divisa = divisa;
     }
 
     public Integer getId() {
@@ -65,18 +68,33 @@ public class Transaccion {
     public void setOperacion(String operacion) {
         this.operacion = operacion;
     }
-    public String getMoneda_origen() {
-        return moneda_origen;
+    public String getDivisa() {
+        return divisa;
     }
-    public void setMoneda_origen(String moneda_origen) {
-        this.moneda_origen = moneda_origen;
+    public void setDivisa(String divisa) {
+        this.divisa = divisa;
     }
-    public String getMoneda_destino() {
-        return moneda_destino;
+    public Float getCantidad() {
+        return cantidad;
     }
-    public void setMoneda_destino(String moneda_destino) {
-        this.moneda_destino = moneda_destino;
+    public void setCantidad(Float cantidad) {
+        this.cantidad = cantidad;
     }
 
+    public UUID getBilleteraEmisora() {
+        return billeteraEmisora;
+    }
+
+    public void setBilleteraEmisora(UUID billetera) {
+        this.billeteraEmisora = billetera;
+    }
+    
+    public UUID getBilleteraReceptora() {
+        return billeteraReceptora;
+    }
+
+    public void setBilleteraReceptora(UUID billetera) {
+        this.billeteraReceptora = billetera;
+    }
     
 }

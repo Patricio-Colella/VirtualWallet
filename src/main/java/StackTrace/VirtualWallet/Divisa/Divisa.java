@@ -24,6 +24,7 @@ public class Divisa {
     private Integer id;
     private String nombre;
     private Float valor_pesos;
+    private Float cantidad;
 
     public Divisa() {
     }
@@ -31,6 +32,12 @@ public class Divisa {
     public Divisa(String nombre, Float valor_pesos) {
         this.nombre = nombre;
         this.valor_pesos = valor_pesos;
+    }
+
+    public Divisa(String nombre, Float valor_pesos, Float cantidad) {
+        this.nombre = nombre;
+        this.valor_pesos = valor_pesos;
+        this.cantidad = cantidad;
     }
 
     public Integer getId() {
@@ -44,6 +51,10 @@ public class Divisa {
     public Float getValor_pesos() {
         return valor_pesos;
     }
+
+    public Float getCantidad() {
+        return cantidad;
+    }
     
     public void setId(Integer id) {
         this.id = id;
@@ -55,6 +66,10 @@ public class Divisa {
     
     public void setValor_pesos(Float valor_pesos) {
         this.valor_pesos = valor_pesos;
+    }
+
+    public void setCantidad(Float cantidad) {
+        this.cantidad = cantidad;
     }
 
     @Override

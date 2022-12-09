@@ -13,13 +13,14 @@ public class DivisaConfig {
     CommandLineRunner commandLineRunnerDivisa(DivisaRepository repository){
         return args->{
             Divisa btc = new Divisa(
-                "BTC",
-                100F
+                "btc",
+                20.00F
+
             );
             
             Divisa eth = new Divisa(
-                "ETH",
-                20F
+                "eth",
+                5.0F
             );
 
             repository.saveAll(
