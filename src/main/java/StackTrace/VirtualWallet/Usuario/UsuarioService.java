@@ -73,18 +73,17 @@ public class UsuarioService {
         }
     }
 
-    public List<BilleteraSaldo> getUsuarioBilleteras(String dni,String contraseña){
+    public List<Billetera> getUsuarioBilleteras(String dni,String contraseña){
         Optional<Usuario> usuarioDni = usuarioRepository.findById(dni) ;
         Optional<Usuario> usuarioContraseña = usuarioRepository.findUsuarioByContraseña(contraseña) ;
 
         if(usuarioDni.isPresent()&&usuarioContraseña.isPresent()&&usuarioContraseña.get().getDni()==usuarioDni.get().getDni()){
             Usuario findedUsuario = usuarioContraseña.get();
+            System.out.println("------bien 2----");
+
             List<Billetera> billeteras = billeteraRepository.findAllById(findedUsuario.getBilleteras());
-            List<BilleteraSaldo> saldos = List.of();
-            for (Billetera billetera : billeteras) {
-                saldos.add(new BilleteraSaldo(billetera.getCvu(), billetera.getSaldo()));
-            }
-            return saldos;
+            
+            return billeteras;
         }else{
             throw new IllegalStateException("contraseña o dni incorrectos");
         }

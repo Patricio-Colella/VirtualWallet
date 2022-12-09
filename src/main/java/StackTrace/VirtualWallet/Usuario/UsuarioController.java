@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import StackTrace.VirtualWallet.BilleteraSaldo;
 
+// import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import StackTrace.VirtualWallet.UsuarioBilletera;
+import StackTrace.VirtualWallet.Billetera.Billetera;
 
 import java.util.List;
 import java.util.Map;
@@ -33,6 +35,21 @@ public class UsuarioController {
     @GetMapping
     public List<Usuario> getUsuarios(){
         return  usuarioService.getUsuarios();
+    }
+
+    @GetMapping(path = "/misBilleteras/{idUsuario}")
+    private List<Billetera> getUsuarioBilleteras(@PathVariable(required=false,name="idUsuario") String idUsuario, @RequestParam(required=false) Map<String,String> qparams){
+
+        if(idUsuario.isEmpty()){
+            throw new IllegalStateException("falta dni del usuario");
+        }
+        String contraseña = qparams.get("contraseña");
+        if(contraseña.isEmpty()){
+
+            throw new IllegalStateException("falta contraseña");
+        }
+
+        return usuarioService.getUsuarioBilleteras(idUsuario,contraseña);
     }
 
     @PostMapping
@@ -67,19 +84,6 @@ public class UsuarioController {
             throw new IllegalStateException("falta dni del usuario");
         }
         usuarioService.deleteUser(idUsuario);
-    }
-
-    @GetMapping(path = "/misBilleteras/{idUsuario}")
-    private List<BilleteraSaldo> getUsuarioBilleteras(@PathVariable(required=false,name="idUsuario") String idUsuario, @RequestParam(required=false) Map<String,String> qparams){
-
-        if(idUsuario.isEmpty()){
-            throw new IllegalStateException("falta dni del usuario");
-        }
-        String contraseña = qparams.get("contraseña");
-        if(contraseña.isEmpty()){
-            throw new IllegalStateException("falta contraseña");
-        }
-        return usuarioService.getUsuarioBilleteras(idUsuario,contraseña);
     }
 
 }
