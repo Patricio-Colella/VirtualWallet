@@ -3,29 +3,28 @@ package StackTrace.VirtualWallet;
 import java.util.UUID;
 
 public class BilleteraSaldo {
-    private UUID cvu;
-    private Float saldo;
     
-    public BilleteraSaldo(UUID cvu, Float saldo ){
-        this.cvu = cvu;
+    private UUID billetera;
+    private Float saldo;
+
+    public BilleteraSaldo(UUID billetera, Float saldo) {
+        this.billetera = billetera;
         this.saldo = saldo;
     }
-
-    public UUID getCvu() {
-        return cvu;
+    
+    public UUID getBilletera() {
+        return billetera;
     }
-
-    public void setCvu(UUID cvu) {
-        this.cvu = cvu;
+    public void setBilletera(UUID billetera) {
+        this.billetera = billetera;
     }
-
     public Float getSaldo() {
         return saldo;
     }
-
     public void setSaldo(Float saldo) {
         this.saldo = saldo;
     }
 
     
+
 }

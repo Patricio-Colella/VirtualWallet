@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import StackTrace.VirtualWallet.BilleteraSaldo;
-
-// import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import StackTrace.VirtualWallet.UsuarioBilletera;
 import StackTrace.VirtualWallet.Billetera.Billetera;

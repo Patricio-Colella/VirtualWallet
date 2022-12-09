@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import StackTrace.VirtualWallet.Billetera.BilleteraRepository;
-import StackTrace.VirtualWallet.BilleteraSaldo;
 import StackTrace.VirtualWallet.UsuarioBilletera;
 import StackTrace.VirtualWallet.Billetera.Billetera;
 
